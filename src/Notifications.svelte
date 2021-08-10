@@ -36,11 +36,8 @@ function removeToast(id) {
     toasts = toasts.filter(t => t.id != id);
 }
 function animateOut(node, { delay = 0, duration = 300 }) {
-    return {
-        delay,
-        duration,
-        css: t => `opacity: ${(t-.5) * 1}; transform: scaleX(${(t-.5)*1});`,
-    };
+    const css = t => `opacity: ${(t-.5) * 1}; transform: scaleX(${(t-.5)*1});`;
+    return {delay, duration, css};
 }
 
 const unsubscribe = notification.subscribe(value => {
@@ -75,6 +72,7 @@ onDestroy(unsubscribe);
   padding: 0.5rem;
   display: block;
   font-weight: 500;
+  max-width: min(350px, 70vh);
 }
 
 @keyframes animate-in {

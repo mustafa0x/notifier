@@ -22,7 +22,7 @@ export let themes = {
 let toasts = [];
 function createToast(msg, theme, to) {
     const background = themes[theme] || themes['default'];
-    const id = toasts.length;
+    const id = Math.random().toString(36).replace(/[^a-z]+/g, '')
     setTimeout(() => { removeToast(id); }, to || timeout);
     toasts = [{
         id,
